@@ -1,11 +1,26 @@
-﻿@{
+﻿@model IEnumerable<CatmashWebApplication.Models.Cat>
+@{
     ViewData["Title"] = "Home Page";
 }
-
+    <div class="row no-gutters">
+        <div class="col no-gutters">
+            <div class="leftside d-flex justify-content-center align-items-center">
+                <img src="@(Model.First().Url)"  class="rounded-circle" alt="">
+            </div>
+        </div>
+        <div class="col no-gutters">
+            <div class="rightside d-flex justify-content-center align-items-center">
+                <img src="@(Model.Last().Url)" class="rounded-circle" alt="">
+            </div>
+        </div>
+    </div>
     <div class="text-center">
+        <a asp-area="" asp-controller="Home" asp-action="Ranking"><b>List de chat</b></a>
+    </div>
+    @*<div class="text-center">
         <h1 class="display-4">Welcome</h1>
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
         <br />
         <br />
         <a asp-area="" asp-controller="Home" asp-action="Ranking"><b>List de chat</b></a>
-    </div>
+    </div>*@

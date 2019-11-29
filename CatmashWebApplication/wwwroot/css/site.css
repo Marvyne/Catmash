@@ -54,3 +54,21 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.leftside, .rightside {
+    height: 90vh;
+    width: 100%;
+}
+
+.leftside {
+    background: rgba(98, 104, 107, 0.10);
+}
+
+.rightside {
+    background: rgba(16, 216, 229, 0.10);
+}
+
+img .image-parent {
+    max-width: 40px;
+    max-height: 40px;
+}

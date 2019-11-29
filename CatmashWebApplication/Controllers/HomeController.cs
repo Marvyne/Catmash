@@ -25,7 +25,10 @@ namespace CatmashWebApplication.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            //List<Cat> cat = _service.GetCat().GetAll();
+            //ViewBag.cat1 = cat.First();
+            //ViewBag.cat2 = cat.Last();
+            return View(_service.GetCat().GetAll());
         }
 
         public IActionResult Ranking()
