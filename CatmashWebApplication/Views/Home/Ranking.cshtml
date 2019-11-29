@@ -4,61 +4,42 @@
     ViewData["Title"] = "Ranking";
 }
 
-<h1>Ranking</h1>
+<h3>Ranking</h3>
 
-<p>
-    <a asp-action="Index">Return to match</a>
-</p>
-@*<table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Url)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Score)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model) {
-            <tr>
-                <td>
-                    <div class="image-parent">
-
-                        <img src="@(item.Url)" class="rounded-circle" alt="">
-                    </div>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Score)
-                </td>
-            </tr>
-    }
-        </tbody>
-    </table>*@
 
 <div class="container">
     <div class="row">
-        <div class="col align-self-center">
-            <h6 class="text-muted">List Group with Images</h6>
-            <ul class="list-group">
-                @foreach (var item in Model)
-                {
 
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div class="col-7">
-                        <div class="image-parent">
-                            <img src="@(item.Url)" class="img-fluid" alt="quixote">
+        @foreach (var item in Model)
+        {
+            
+            <div class="col-sm-4">
+                <div class="card text-white bg-dark">
+                    <img src="@(item.Url)" class="card-img-top rank" alt="...">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">Rank</h5>
+                                <p class="card-text">
+                                    @(ViewBag.rank = (int)ViewBag.rank + 1)
+
+                                </p>
+                            </div>
+                            <div class="col">
+                                <h5 class="card-title">Score</h5>
+                                <p>
+                                    @(item.Score)
+                                    <img src="~/img/logo.png" alt="logo" class="littleicon" />
+                                </p>
+                            </div>
                         </div>
+                       
+                        
                     </div>
-                    <div class="col-5">
-                        Score = @item.Score
-                    </div>
-                   
-                   
-                </li>
-                }
-            </ul>
+                </div>
+                </div>
+            
+        }
+
+            </div>
         </div>
-    </div>
-</div>

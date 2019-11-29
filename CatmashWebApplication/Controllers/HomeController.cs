@@ -33,7 +33,8 @@ namespace CatmashWebApplication.Controllers
 
         public IActionResult Ranking()
         {
-            return View(_service.GetCat().GetAll());
+            ViewBag.rank = 0;
+            return View(_service.GetCat().GetAll().OrderByDescending(x => x.Score));
         }
 
         public IActionResult Privacy()
