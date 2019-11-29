@@ -26,8 +26,8 @@ namespace CatmashAPI.Models
                 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
 
                 //Marvyne
-                 optionsBuilder.UseSqlServer("Server=MARVYNE\\SQLEXPRESS;Database=BlogNet;Trusted_Connection=True;");
-                //optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                 optionsBuilder.UseSqlServer("Server=MARVYNE\\SQLEXPRESS;Database=Catmash;Trusted_Connection=True;");
+                //
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

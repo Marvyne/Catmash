@@ -59,7 +59,7 @@ namespace CatmashAPI
                 //c.IncludeXmlComments(xmlPath);
             });
 
-            var connection = @"Server=MARVYNE\SQLEXPRESS;Database=Catmash;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<CatmashContext>(options => options.UseSqlServer(connection));
 
         }
