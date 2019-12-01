@@ -47,6 +47,15 @@ namespace CatmashWebApplication.Service
             return null;
         }
 
+        public List<Cat> GetTwoCatsRandomly()
+        {
+            var result = _client.GetAsync(ApplicationSettings.WebApiUrl + "random/").Result;
+
+            if (result.IsSuccessStatusCode)
+                return JsonConvert.DeserializeObject<List<Cat>>(result.Content.ReadAsStringAsync().Result);
+            return null;
+        }
+
         public Cat Updated(Cat cat)
         {
             var result = _client.PutAsJsonAsync(ApplicationSettings.WebApiUrl + cat.Id, cat).Result;
