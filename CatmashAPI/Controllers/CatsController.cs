@@ -15,6 +15,7 @@ namespace CatmashAPI.Controllers
     public class CatsController : ControllerBase
     {
         private readonly CatmashContext _context;
+        private Random rd = new Random();
 
         public CatsController(CatmashContext context)
         {
@@ -30,6 +31,17 @@ namespace CatmashAPI.Controllers
         public async Task<ActionResult<IEnumerable<Cat>>> GetCats()
         {
             return await _context.Cat.ToListAsync();
+        }
+
+        // GET: api/Cats/Random
+        /// <summary>
+        /// Return list of two cat (randomly) for a duel 
+        /// </summary>
+        /// <returns>Array</returns>
+        [HttpGet("random/")]
+        public async Task<ActionResult<IEnumerable<Cat>>> GetTwoCatRandom()
+        {
+            return await _context.Cat.OrderBy(a => rd.Next()).Take(2).ToListAsync();
         }
 
         // GET: api/Cats/5
