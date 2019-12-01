@@ -113,3 +113,8 @@ h2 {
     
     bottom: 50px;
 }
+
+input, button, submit {
+    border: none;
+    background: none;
+} 

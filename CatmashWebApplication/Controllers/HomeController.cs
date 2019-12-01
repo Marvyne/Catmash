@@ -26,7 +26,7 @@ namespace CatmashWebApplication.Controllers
         }
         public IActionResult Index()
         {
-            return View(_service.GetCat().GetAll());
+            return View(_service.GetCat().GetTwoCatsRandomly());
         }
 
         public IActionResult Vote(ViewModelVote cats)
