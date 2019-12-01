@@ -29,7 +29,7 @@ namespace CatmashWebApplication.Controllers
             return View(_service.GetCat().GetAll());
         }
 
-        public IActionResult Vote(ViewModelVote cats, string winne)
+        public IActionResult Vote(ViewModelVote cats)
         {
             Cat winner, loser;
             if (cats.cat1 == cats.winner)
