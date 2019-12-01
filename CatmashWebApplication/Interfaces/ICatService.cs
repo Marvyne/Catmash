@@ -10,9 +10,9 @@ namespace CatmashWebApplication.Interfaces
     public interface ICatService
     {
         List<Cat> GetAll();
-        Cat Get(int id);
+        Cat Get(string id);
         Cat Create(Cat cat);
         Cat Updated(Cat cat);
-        HttpStatusCode Delete(int id);
+        HttpStatusCode Delete(string id);
     }
 }

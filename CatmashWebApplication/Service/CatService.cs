@@ -23,13 +23,13 @@ namespace CatmashWebApplication.Service
             return null;
         }
 
-        public HttpStatusCode Delete(int id)
+        public HttpStatusCode Delete(string id)
         {
             var result = _client.DeleteAsync(ApplicationSettings.WebApiUrl + id).Result;
             return result.StatusCode;
         }
 
-        public Cat Get(int id)
+        public Cat Get(string id)
         {
             var result = _client.GetAsync(ApplicationSettings.WebApiUrl + id).Result;
 

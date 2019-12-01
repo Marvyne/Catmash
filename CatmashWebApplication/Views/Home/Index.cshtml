@@ -2,15 +2,26 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-    <div class="row no-gutters">
-        <div class="col no-gutters">
-            <div class="leftside d-flex justify-content-center align-items-center">
-                <img src="@(Model.First().Url)"  class="rounded-circle catmatch" alt="">
+    <form asp-controller="Home" asp-action="Vote" method="post">
+        <input type="hidden" name="cat1" value="@(Model.First().Id)" />
+        <input type="hidden" name="cat2" value="@(Model.Last().Id)" />
+        <div class="row no-gutters">
+            <div class="col no-gutters">
+                <div class="leftside d-flex justify-content-center align-items-center">
+                    @*<input type="image" src="@(Model.First().Url)" class="rounded-circle catmatch" alt="Or Click Me" asp-controller="Home"
+                           asp-action="Vote" name="button" value="1">*@
+                    <button name="winner" type="submit" value="@(Model.First().Id)">
+                        <img src="@(Model.First().Url)" class="rounded-circle catmatch" alt="">
+                    </button>
+                </div>
+            </div>
+            <div class="col no-gutters">
+                <div class="rightside d-flex justify-content-center align-items-center">
+                    <button name="winner" type="submit" value="@(Model.Last().Id)">
+                        <img src="@(Model.Last().Url)" class="rounded-circle catmatch" alt="">
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="col no-gutters">
-            <div class="rightside d-flex justify-content-center align-items-center">
-                <img src="@(Model.Last().Url)" class="rounded-circle catmatch" alt="">
-            </div>
-        </div>
-    </div>
+        <button type="submit">Test</button>
+    </form>

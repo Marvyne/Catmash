@@ -75,7 +75,8 @@ namespace CatmashAPI.Controllers
             {
                 return BadRequest();
             }
-
+            if (cat.Score < 0)
+                cat.Score = 0;
             _context.Entry(cat).State = EntityState.Modified;
 
             try

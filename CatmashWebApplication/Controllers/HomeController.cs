@@ -8,6 +8,7 @@ using CatmashWebApplication.Models;
 using Microsoft.Extensions.Configuration;
 using CatmashWebApplication.Facade;
 using CatmashWebApplication.Util;
+using CatmashWebApplication.ViewModel;
 
 namespace CatmashWebApplication.Controllers
 {
@@ -25,10 +26,30 @@ namespace CatmashWebApplication.Controllers
         }
         public IActionResult Index()
         {
-            //List<Cat> cat = _service.GetCat().GetAll();
-            //ViewBag.cat1 = cat.First();
-            //ViewBag.cat2 = cat.Last();
             return View(_service.GetCat().GetAll());
+        }
+
+        public IActionResult Vote(ViewModelVote cats, string winne)
+        {
+            Cat winner, loser;
+            if (cats.cat1 == cats.winner)
+            {
+                winner = _service.GetCat().Get(cats.cat1);
+                loser = _service.GetCat().Get(cats.cat2);
+            }
+            else if (cats.cat2 == cats.winner)
+            {
+                winner = _service.GetCat().Get(cats.cat2);
+                loser = _service.GetCat().Get(cats.cat1);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            Cat[] competitors = _service.GetDuel().ResultOfDuel(winner, loser);
+            _service.GetCat().Updated(competitors[0]);
+            _service.GetCat().Updated(competitors[1]);
+            return RedirectToAction("Index");
         }
 
         public IActionResult Ranking()
